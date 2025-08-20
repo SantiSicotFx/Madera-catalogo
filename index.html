@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Madera — Muebles con alma</title>
+  <meta name="description" content="Muebles de madera, diseño atemporal y calidad artesanal.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-texture">
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Madera">
+      <img src="logo.svg" alt="Madera" class="logo" width="132" height="32" decoding="async">
+    </a>
+
+    <nav class="menu" id="deskMenu">
+      <a href="#colecciones">Colecciones</a>
+      <a href="#proceso">Proceso</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="hamb" id="hambBtn" aria-label="Abrir menú" aria-controls="mobNav" aria-expanded="false">☰</button>
+  </div>
+
+  <nav class="mobile-nav" id="mobNav" aria-label="Navegación móvil">
+    <a href="#colecciones" class="m-link">Colecciones</a>
+    <a href="#proceso" class="m-link">Proceso</a>
+    <a href="catalogo.html" class="m-link">Catálogo</a>
+    <a href="#contacto" class="m-link">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO centrado compacto -->
+  <section class="hero hero-wood hero-tight">
+    <div class="overlay"></div>
+    <div class="container hero-content hero-center">
+      <h1>Muebles con alma de <span class="grad">madera</span></h1>
+      <p class="lead">Diseño atemporal, materiales nobles y terminaciones de taller. Hechos para durar y para vivirlos.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="catalogo.html">Ver catálogo</a>
+        <a class="btn btn-ghost" href="#contacto">Pedir a medida</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLECCIONES -->
+  <section id="colecciones" class="container section">
+    <header class="section-head">
+      <h2>Colecciones</h2>
+      <p class="muted">Piezas pensadas para sala de estar, comedor y espacios de trabajo.</p>
+    </header>
+    <div class="cards-3">
+      <article class="card-tile">
+        <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop" alt="Sillas y butacas">
+        <div class="tile-body"><h3>Sillas & Butacas</h3><p>Confort y líneas puras para el día a día.</p></div>
+      </article>
+      <article class="card-tile">
+        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1200&auto=format&fit=crop" alt="Mesas de comedor">
+        <div class="tile-body"><h3>Mesas</h3><p>Roble macizo, proporciones honestas y acabado al aceite.</p></div>
+      </article>
+      <article class="card-tile">
+        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&auto=format&fit=crop" alt="Estanterías modulares">
+        <div class="tile-body"><h3>Estanterías</h3><p>Módulos configurables en fresno y acero.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESO profesional numerado -->
+  <section id="proceso" class="container section">
+    <header class="section-head">
+      <h2>Nuestro proceso</h2>
+      <p class="muted">Del bosque certificado a tu casa, con trazabilidad y cuidado en cada paso.</p>
+    </header>
+    <ol class="steps pro-steps">
+      <li>
+        <div class="num">01</div>
+        <div class="txt">
+          <h4>Selección de maderas</h4>
+          <p>Roble, fresno y petiribí con secado controlado y origen certificado.</p>
+        </div>
+      </li>
+      <li>
+        <div class="num">02</div>
+        <div class="txt">
+          <h4>Construcción</h4>
+          <p>Ensambles tradicionales, uniones visibles y herrajes de acero. Sin atajos.</p>
+        </div>
+      </li>
+      <li>
+        <div class="num">03</div>
+        <div class="txt">
+          <h4>Terminación</h4>
+          <p>Acabado al aceite natural que protege y resalta la veta, pátina única.</p>
+        </div>
+      </li>
+      <li>
+        <div class="num">04</div>
+        <div class="txt">
+          <h4>Entrega & cuidado</h4>
+          <p>Embalaje responsable y guía de mantenimiento para que dure generaciones.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CONTACTO PROFESIONAL -->
+  <section id="contacto" class="cta cta-warm">
+    <div class="container contact-grid">
+      <div>
+        <h2>Contanos tu proyecto</h2>
+        <p class="muted">Respondemos dentro de las 24 h. También hacemos piezas a medida.</p>
+        <ul class="contact-meta">
+          <li>✉️ madera@gmail.com</li>
+          <li>📦 Producción a pedido (2–4 semanas)</li>
+          <li>🌱 Maderas de origen responsable</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" action="https://formsubmit.co/madera@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Contacto — Madera (Presentación)">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="index.html#contacto-gracias">
+        <label>
+          <span>Nombre</span>
+          <input type="text" name="nombre" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="full">
+          <span>Mensaje</span>
+          <textarea name="mensaje" rows="4" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+
+        <!-- Gracias alineado con el form -->
+        <div id="contacto-gracias" class="thanks muted">¡Gracias! Te vamos a responder a la brevedad.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container"><p>© <span id="year"></span> Madera</p></div>
+</footer>
+
+<!-- Flecha volver arriba -->
+<button id="toTop" aria-label="Volver arriba">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>

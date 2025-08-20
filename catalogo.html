@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Madera — Catálogo</title>
+  <meta name="description" content="Catálogo de muebles: sillas, mesas, sofás y estanterías.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-texture">
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Madera">
+      <img src="logo.svg" alt="Madera" class="logo" width="132" height="32" decoding="async">
+    </a>
+
+    <nav class="menu" id="deskMenu2">
+      <a href="index.html#colecciones">Colecciones</a>
+      <a href="index.html#proceso">Proceso</a>
+      <a href="catalogo.html" aria-current="page">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="hamb" id="hambBtn2" aria-label="Abrir menú" aria-controls="mobNav2" aria-expanded="false">☰</button>
+  </div>
+
+  <nav class="mobile-nav" id="mobNav2" aria-label="Navegación móvil">
+    <a href="index.html#colecciones" class="m-link">Colecciones</a>
+    <a href="index.html#proceso" class="m-link">Proceso</a>
+    <a href="catalogo.html" class="m-link" aria-current="page">Catálogo</a>
+    <a href="#contacto" class="m-link">Contacto</a>
+  </nav>
+</header>
+
+<main class="container">
+  <header class="catalog-hero">
+    <div class="ch-copy">
+      <h1>Nuestra colección</h1>
+      <p>Seleccionados por su nobleza, durabilidad y belleza natural.</p>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop"
+      alt="Detalle de madera"
+      width="1280" height="360"
+      loading="eager" decoding="async">
+  </header>
+
+  <section class="toolbar">
+    <label class="search">
+      <input id="q" type="search" placeholder="Buscar: silla, mesa, roble…" aria-label="Buscar productos">
+      <span class="kbd">/</span>
+    </label>
+    <label class="sort">
+      <select id="sort" aria-label="Ordenar">
+        <option value="relevance">Relevancia</option>
+        <option value="price-asc">Precio: menor a mayor</option>
+        <option value="price-desc">Precio: mayor a menor</option>
+        <option value="name-asc">Nombre: A → Z</option>
+        <option value="name-desc">Nombre: Z → A</option>
+      </select>
+    </label>
+  </section>
+
+  <section id="grid" class="grid" aria-live="polite"></section>
+
+  <div class="load-more">
+    <button id="more" class="btn">Cargar más</button>
+  </div>
+
+  <!-- CONTACTO EN ESTA PÁGINA -->
+  <section id="contacto" class="cta cta-warm">
+    <div class="container contact-grid">
+      <div>
+        <h2>¿Te interesó un producto?</h2>
+        <p class="muted">Escribinos el SKU y las medidas. Respondemos dentro de 24 h.</p>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/madera@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Contacto — Madera (Catálogo)">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="catalogo.html#contacto-gracias">
+        <label>
+          <span>Nombre</span>
+          <input type="text" name="nombre" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="full">
+          <span>Mensaje</span>
+          <textarea name="mensaje" rows="4" placeholder="Ej: Sofá Terra (SKU SO-TER-02), tela color arena…" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Enviar consulta</button>
+
+        <!-- Gracias alineado con el form -->
+        <div id="contacto-gracias" class="thanks muted">¡Gracias por tu mensaje! Te respondemos pronto.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <button class="close" aria-label="Cerrar">×</button>
+    <div class="sheet-body">
+      <img id="mImg" alt="" class="m-img">
+      <div class="info">
+        <h3 id="mTitle"></h3>
+        <p id="mDesc" class="muted"></p>
+        <div class="meta">
+          <span class="tag" id="mCat"></span>
+          <span class="sku" id="mSku"></span>
+        </div>
+        <div class="price">
+          <span id="mPrice"></span>
+          <a class="btn btn-primary" id="mContact" href="mailto:madera@gmail.com?subject=Consulta%20producto">Consultar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container"><p>© <span id="year"></span> Madera</p></div>
+</footer>
+
+<!-- Flecha volver arriba -->
+<button id="toTop" aria-label="Volver arriba">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
