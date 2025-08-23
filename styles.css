@@ -268,6 +268,55 @@ img{max-width:100%;display:block}
 .catalog-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;filter:contrast(1.05)}
 .catalog-hero .ch-copy{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;padding:18px;backdrop-filter:blur(2px);text-align:center}
 
+/* === FIX: fondo marrón en mobile (sin imagen) + header siempre visible === */
+:root{
+  /* Alto de header para reservar espacio al fijarlo */
+  --header-h: 64px;
+}
+
+/* 1) Header siempre visible en todas las vistas */
+.site-header{
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  z-index: 1000; /* por encima de todo */
+  background: color-mix(in srgb, var(--bg) 88%, black); /* sutil, sólido */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Reservar espacio para que el contenido no quede tapado por el header fijo */
+body{ padding-top: var(--header-h); }
+
+/* Navegación móvil: que se despliegue fijada bajo el header */
+.mobile-nav{
+  position: fixed;
+  top: var(--header-h);
+  left: 0; right: 0;
+  z-index: 999;
+  display: none;
+  background: rgba(17,17,17,.96);
+  border-top: 1px solid var(--border);
+}
+.mobile-nav.open{ display: block; }
+
+/* 2) En celulares: quitar la imagen de fondo y dejar marrón sólido */
+@media (max-width: 768px){
+  /* El body de ambas páginas tiene la clase .bg-texture */
+  body.bg-texture{
+    /* eliminar capas previas e imagen y dejar marrón */
+    background: linear-gradient(180deg, var(--grain), #1a120d) !important;
+    background-blend-mode: normal !important;
+  }
+}
+
+@media (max-width: 768px){
+  .hero-wood{
+    background: linear-gradient(180deg, rgba(14,10,7,.85), rgba(14,10,7,.95)) !important;
+  }
+}
+
+
+
 
 
 
