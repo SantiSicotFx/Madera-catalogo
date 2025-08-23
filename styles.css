@@ -276,3 +276,49 @@ img{max-width:100%;display:block}
 @media (min-width:992px){.catalog-hero::before{aspect-ratio:auto;height:420px}}
 .catalog-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;filter:contrast(1.05)}
 .catalog-hero .ch-copy{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;padding:18px;backdrop-filter:blur(2px);text-align:center}
+
+/* ====== iOS/Safari background fix (pegar al FINAL del CSS) ====== */
+
+/* 1) Fondo general (BODY con .bg-texture): imagen + velo */
+body.bg-texture{
+  position: relative !important;
+  background: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop')
+              center/cover no-repeat,
+              linear-gradient(180deg,#1a120d,var(--bg)) !important;
+  /* sin blend-mode, sin fixed */
+}
+body.bg-texture::before{
+  content:"";
+  position: fixed; /* cubre toda la pantalla al hacer scroll */
+  inset:0;
+  background: radial-gradient(70% 60% at 20% 0%, rgba(156,107,61,.18), transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+body.bg-texture > *{ position: relative; z-index:1; }
+
+/* 2) HERO con overlay (usa tu <div class="overlay"></div>) */
+.hero-wood{
+  position: relative !important;
+  background: url('https://images.unsplash.com/photo-1600585154340-1e4ce9a9d909?q=80&w=1600&auto=format&fit=crop')
+              center/cover no-repeat !important;
+  /* quitar fixed/blend en iOS */
+}
+.hero-wood .overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(14,10,7,.55), rgba(14,10,7,.85));
+  z-index:1; pointer-events:none;
+}
+.hero-wood > .container{ position: relative; z-index:2; }
+
+/* 3) Doble seguridad en iOS: sin attachment fixed en bg múltiples */
+@supports (-webkit-touch-callout: none){
+  body.bg-texture,
+  .hero-wood{
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+}
+
+
